@@ -1,0 +1,10 @@
+<div class="settings">
+  <div class="container">
+    <ven-settings-view
+      *ngIf="authData$ | async as authData"
+      [userData]="authData"
+      [pending]="(pending$ | async) || false"
+      (changePassword)="changePassword($event)"
+    ></ven-settings-view>
+  </div>
+</div>

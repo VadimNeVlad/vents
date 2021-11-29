@@ -1,0 +1,20 @@
+<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+  <ven-input
+    [control]="getInputControl('email')"
+    type="email"
+    fieldName="Email"
+    placeholder="Enter email"
+  ></ven-input>
+  <ven-input
+    [control]="getInputControl('password')"
+    type="password"
+    fieldName="Password"
+    placeholder="Enter password"
+  ></ven-input>
+
+  <ng-container buttons>
+    <ven-button [isButton]="true" [disabled]="signInForm.invalid || pending">
+      <ng-container button>Sign In</ng-container>
+    </ven-button>
+  </ng-container>
+</form>

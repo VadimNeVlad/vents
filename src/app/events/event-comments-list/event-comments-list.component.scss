@@ -1,0 +1,51 @@
+.event-comments {
+  &__content {
+    background-color: #fff;
+    border: 1px solid #d4d4d5;
+    padding: 15px;
+  }
+
+  &__title {
+    text-align: center;
+    background-color: #00b5ad;
+    padding: 13px 15px;
+    color: #fff;
+
+    h4 {
+      font-size: 20px;
+      margin: 0;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 15px;
+  }
+
+  &__item-info-wrap {
+    margin-left: 10px;
+  }
+
+  &__item-info {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 5px;
+  }
+
+  &__name {
+    display: inline-block;
+    padding-right: 10px;
+  }
+
+  &__date {
+    display: inline-block;
+    padding-top: 3px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  ven-avatar-icon {
+    margin-top: 5px;
+  }
+}

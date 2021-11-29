@@ -1,0 +1,41 @@
+<div class="event-comments">
+  <div class="event-comments__title">
+    <h4>Chat about this event</h4>
+  </div>
+  <div class="event-comments__content">
+    <div class="event-comments__list">
+      <div
+        *ngFor="let comment of comments; trackBy: trackById"
+        class="event-comments__item"
+      >
+        <ven-avatar-icon
+          [routerLink]="'/users/' + comment.uid"
+          [name]="comment.userName"
+          size="small"
+        ></ven-avatar-icon>
+        <div class="event-comments__item-info-wrap">
+          <div class="event-comments__item-info">
+            <strong class="event-comments__name">{{ comment.userName }}</strong>
+            <span class="event-comments__date">{{
+              comment.createdAt | date: "dd-MM-YYYY, HH:mm"
+            }}</span>
+          </div>
+          <p class="event-comments__item-msg">{{ comment.message }}</p>
+        </div>
+      </div>
+    </div>
+    <form *ngIf="userData" [formGroup]="commentsForm" (ngSubmit)="onSubmit()">
+      <ven-textarea
+        [control]="getInputControl('message')"
+        placeholder="Add your comment"
+      ></ven-textarea>
+      <ven-button
+        [isButton]="true"
+        color="blue"
+        [disabled]="commentsForm.invalid || pending"
+      >
+        <ng-container button>Add Comment</ng-container>
+      </ven-button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  <ven-input
+    [control]="getInputControl('name')"
+    type="text"
+    fieldName="Name"
+    placeholder="Enter Name"
+  ></ven-input>
+  <ven-input
+    [control]="getInputControl('lastname')"
+    type="text"
+    fieldName="Lastname"
+    placeholder="Enter Lastname"
+  ></ven-input>
+  <ven-input
+    [control]="getInputControl('email')"
+    type="email"
+    fieldName="Email"
+    placeholder="Enter email"
+  ></ven-input>
+  <ven-input-radio
+    [control]="getInputControl('gender')"
+    fieldName="Email"
+    [options]="inputOptions"
+    class="d-flex"
+  ></ven-input-radio>
+  <ven-input
+    [control]="getInputControl('password')"
+    type="password"
+    fieldName="Password"
+    placeholder="Enter password"
+  ></ven-input>
+  <ven-input
+    [control]="getInputControl('confirmPassword')"
+    type="password"
+    fieldName="Password"
+    placeholder="Confirm your password"
+  ></ven-input>
+
+  <div
+    class="auth__error-helper"
+    *ngIf="
+      signUpForm.invalid &&
+      signUpForm.get('confirmPassword')?.touched &&
+      signUpForm.hasError('passwordsDoesntMatch')
+    "
+  >
+    <span class="input-error">Please make sure your passwords match.</span>
+  </div>
+
+  <ng-container buttons>
+    <ven-button [isButton]="true" [disabled]="signUpForm.invalid || pending">
+      <ng-container button>Sign Up</ng-container>
+    </ven-button>
+  </ng-container>
+</form>

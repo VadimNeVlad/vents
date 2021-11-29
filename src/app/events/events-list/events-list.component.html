@@ -1,0 +1,50 @@
+<div *ngIf="events.length !== 0; else empty" class="events-list">
+  <div
+    *ngFor="let event of events; trackBy: trackById"
+    class="events-list__item"
+  >
+    <span *ngIf="event.cancelEvent" class="events-list__cancel-info"
+      >Event canceled</span
+    >
+    <div class="events-list__item-title-row">
+      <ven-avatar-icon
+        [routerLink]="'/users/' + event.uid"
+        [name]="event.author"
+        size="big"
+      ></ven-avatar-icon>
+      <div class="events-list__title-info">
+        <h3 class="events-list__title">{{ event.title }}</h3>
+        <p class="events-list__host">Hosted by {{ event.author }}</p>
+      </div>
+    </div>
+    <div class="events-list__item-date-row">
+      <p class="events-list__item-data">
+        <mat-icon>access_time</mat-icon>
+        {{ event.eventDate | date: "dd-MM-YYYY" }}
+      </p>
+      <p class="events-list__item-country">
+        <mat-icon> place</mat-icon> {{ event.city }}
+      </p>
+    </div>
+    <div class="events-list__item-info-row">
+      <p>{{ event.description }}</p>
+      <div class="events-list__btn-wrap">
+        <ven-button
+          *ngIf="userData?.id === event.uid"
+          color="blue"
+          class="mr-15px"
+          (click)="onModalHandle(event, 'event-delete-')"
+        >
+          Delete Event
+        </ven-button>
+        <ven-button [linkUrl]="event.id.toString()">View</ven-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #empty>
+  <div class="center">
+    <h3>No Events</h3>
+  </div>
+</ng-template>

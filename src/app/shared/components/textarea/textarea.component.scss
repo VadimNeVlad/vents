@@ -1,0 +1,17 @@
+.field {
+  width: 100%;
+
+  textarea {
+    width: 100%;
+    padding: 0 15px;
+    padding-top: 15px;
+    height: 110px;
+    outline: none;
+    border: none;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-radius: 2px;
+    background-color: #fff;
+    resize: none;
+    margin-bottom: 15px;
+  }
+}

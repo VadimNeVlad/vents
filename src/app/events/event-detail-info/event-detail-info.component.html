@@ -1,0 +1,45 @@
+<div class="event-detail-info">
+  <div class="event-detail-info__header">
+    <div class="event-detail-info__category-img">
+      <img [src]="'assets/img/' + event.category + '.jpg'" alt="" />
+      <div class="event-detail-info__header-texts">
+        <h2>{{ event.title }}</h2>
+        <p class="event-detail-info__header-date">
+          {{ event.eventDate | date: "dd-MM-YYYY" }}
+        </p>
+        <p *ngIf="event.author" class="event-detail-info__header-author">
+          Suggested by <strong>{{ event.author }}</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="event.uid === userData?.id" class="event-detail-info__btns">
+    <ven-button
+      [isButton]="true"
+      [disabled]="pending"
+      [color]="eventStatus ? 'blue' : 'gray'"
+      (click)="onSetEventStatus()"
+    >
+      <ng-container button>
+        {{ eventStatus ? "Activate Event" : "Cancel Event" }}
+      </ng-container>
+    </ven-button>
+  </div>
+  <div class="event-detail-info__content">
+    <div class="event-detail-info__content-row">
+      <mat-icon>access_time</mat-icon>
+      <p>{{ event.eventDate | date: "dd-MM-YYYY" }}</p>
+    </div>
+    <div class="event-detail-info__content-row">
+      <mat-icon> place</mat-icon>
+      <p>{{ event.city }}</p>
+    </div>
+    <div class="event-detail-info__content-row">
+      <mat-icon>info</mat-icon>
+      <div
+        class="event-detail-info__content-text"
+        [innerHtml]="event.content"
+      ></div>
+    </div>
+  </div>
+</div>

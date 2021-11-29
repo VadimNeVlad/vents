@@ -1,0 +1,22 @@
+<div
+  [ngClass]="{
+    open: modalType === currentModal
+  }"
+  (click)="onCloseModal()"
+  class="modal__overlay"
+>
+  <div (click)="$event.stopPropagation()" class="modal">
+    <div class="modal__content">
+      <h3 class="modal__title">{{ title }}</h3>
+    </div>
+    <div class="modal__panel">
+      <div class="modal__content-info">
+        <ng-content select="[content]"></ng-content>
+      </div>
+      <ng-content select="[form]"></ng-content>
+      <div class="d-flex">
+        <ng-content select="[buttons]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

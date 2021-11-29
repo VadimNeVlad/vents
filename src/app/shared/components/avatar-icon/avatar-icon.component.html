@@ -1,0 +1,8 @@
+<div
+  venAvatarColor
+  [avatarColor]="name"
+  [ngClass]="{ big: size === 'big', small: size === 'small' }"
+  class="avatar-item"
+>
+  <span>{{ name | slice: 0:1 }}</span>
+</div>

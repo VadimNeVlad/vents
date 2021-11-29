@@ -1,0 +1,32 @@
+<ven-header
+  [isAuth]="(isAuth$ | async) || false"
+  [authData]="authData$ | async"
+  (modalType)="openModal($event)"
+  (logout)="logout()"
+></ven-header>
+
+<ven-modal
+  modalType="signin"
+  [currentModal]="modalOpenType$ | async"
+  title="Sign In"
+  (closeModal)="closeModal()"
+>
+  <ven-sign-in
+    form
+    [pending]="(pending$ | async) || false"
+    (formData)="signin($event)"
+  ></ven-sign-in>
+</ven-modal>
+
+<ven-modal
+  modalType="signup"
+  [currentModal]="modalOpenType$ | async"
+  title="Sign Up"
+  (closeModal)="closeModal()"
+>
+  <ven-sign-up
+    form
+    [pending]="(pending$ | async) || false"
+    (formData)="signup($event)"
+  ></ven-sign-up>
+</ven-modal>

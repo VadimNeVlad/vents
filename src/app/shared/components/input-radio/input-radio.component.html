@@ -1,0 +1,15 @@
+<div *ngFor="let input of options; trackBy: trackByName" class="field">
+  <input
+    [formControl]="control"
+    [name]="input.name"
+    [value]="input.value"
+    [id]="input.value"
+    type="radio"
+  />
+  <label class="label-radio" [for]="input.value">{{ input.value }}</label>
+</div>
+<ng-container *ngIf="control.invalid && control.touched">
+  <div *ngIf="control.hasError('required')" class="input-error">
+    {{ fieldName }} is required
+  </div>
+</ng-container>

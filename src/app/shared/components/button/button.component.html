@@ -1,0 +1,33 @@
+<a
+  *ngIf="!isButton"
+  [routerLink]="linkUrl"
+  class="main-btn"
+  [ngClass]="{
+    border: classType === 'border',
+    main: classType === 'main',
+    teal: color === 'teal',
+    blue: color === 'blue',
+    gray: color === 'gray',
+    smallBtn: smallBtn
+  }"
+>
+  <ng-content></ng-content>
+</a>
+
+<button
+  *ngIf="isButton"
+  class="main-btn"
+  [ngClass]="{
+    border: classType === 'border',
+    main: classType === 'main',
+    teal: color === 'teal',
+    blue: color === 'blue',
+    gray: color === 'gray',
+    smallBtn: smallBtn,
+    fullWidth: width === 'full'
+  }"
+  [type]="buttonType"
+  [disabled]="disabled"
+>
+  <ng-content select="[button]"></ng-content>
+</button>

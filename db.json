@@ -1,0 +1,54 @@
+{
+  "events": [
+    {
+      "title": "Test Event",
+      "category": "party",
+      "city": "Gotham",
+      "venue": "123 Lane",
+      "eventDate": "2021-11-28T22:00:00.000Z",
+      "description": "This is first test event",
+      "content": "<p>This is first test event, lets start a party!!!</p>",
+      "author": "Test Testovich",
+      "cancelEvent": false,
+      "createAt": "2021-11-29T10:00:48.713Z",
+      "uid": 1,
+      "id": 1
+    },
+    {
+      "title": "Winter is coming",
+      "category": "culture",
+      "city": "Winterfell",
+      "venue": "Castle street",
+      "eventDate": "2021-11-28T22:00:00.000Z",
+      "description": "Winter is coming",
+      "content": "<p>Winter is coming, No way!</p>",
+      "author": "Test Testovich",
+      "cancelEvent": true,
+      "createAt": "2021-11-29T10:04:32.588Z",
+      "uid": 1,
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "eventId": 1,
+      "userName": "Test",
+      "createdAt": "2021-11-29T10:01:29.585Z",
+      "message": "Hello!!!",
+      "uid": 1,
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "email": "test@mail.com",
+      "password": "$2a$10$TQs4fmSXDSgqO8EjOM3dMuV/SyntJDkMFrdyncwouUVCBYM96VmF.",
+      "name": "Test",
+      "lastname": "Testovich",
+      "gender": "male",
+      "confirmPassword": "123456",
+      "createdAt": "2021-11-29T09:58:56.718Z",
+      "id": 1
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<div class="select">
+  <mat-select
+    [formControl]="control"
+    [disableOptionCentering]="true"
+    [placeholder]="placeholder"
+  >
+    <mat-option *ngFor="let option of options" [value]="option.value">{{
+      option.name
+    }}</mat-option>
+  </mat-select>
+</div>

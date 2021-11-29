@@ -1,0 +1,22 @@
+.field {
+  width: 100%;
+  margin-bottom: 15px;
+
+  input {
+    width: 100%;
+    padding: 0 15px;
+    height: 36px;
+    outline: none;
+    border: none;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-radius: 2px;
+    background-color: #fff;
+  }
+
+  .input-error {
+    font-size: 12px;
+    color: red;
+    padding-left: 15px;
+    padding-top: 5px;
+  }
+}

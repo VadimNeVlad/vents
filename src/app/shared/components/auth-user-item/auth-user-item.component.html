@@ -1,0 +1,18 @@
+<div class="auth-user-item" [matMenuTriggerFor]="menu">
+  <ven-avatar-icon [name]="userData.name" size="small"></ven-avatar-icon>
+  <p class="auth-user-item__info">
+    {{ userData.name + " " + userData.lastname }}
+  </p>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <a mat-menu-item [routerLink]="'users/' + userData.id"
+      ><mat-icon>supervised_user_circle</mat-icon> Profile
+    </a>
+    <a mat-menu-item routerLink="settings">
+      <mat-icon>settings</mat-icon>
+      Settings
+    </a>
+    <div mat-menu-item (click)="onLogout()">
+      <mat-icon>exit_to_app</mat-icon> Logout
+    </div>
+  </mat-menu>
+</div>

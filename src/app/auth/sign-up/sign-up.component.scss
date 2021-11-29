@@ -1,0 +1,17 @@
+.sign-up {
+  &__field-row {
+    display: flex;
+  }
+}
+
+.auth__error-helper {
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+.input-error {
+  font-size: 12px;
+  color: red;
+  padding-left: 15px;
+  padding-top: 5px;
+}

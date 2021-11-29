@@ -1,0 +1,45 @@
+<div class="user-detail-info">
+  <div class="user-detail-info__header">
+    <div class="user-detail-info__name-info">
+      <ven-avatar-icon [name]="userData.name" size="big"></ven-avatar-icon>
+      <h3>{{ userData.name + " " + userData.lastname }}</h3>
+    </div>
+    <p class="user-detail-info__date">
+      <strong>Member since:</strong>
+      {{ userData.createdAt | date: "dd-MM-YYYY" }}
+    </p>
+  </div>
+  <div class="user-detail-info__about">
+    <h4 class="user-detail-info__subtitle">
+      <mat-icon>event_note</mat-icon> My events
+    </h4>
+    <div
+      *ngIf="userEvents.length !== 0; else empty"
+      class="user-detail-info__events-list"
+    >
+      <div
+        *ngFor="let event of userEvents; trackBy: trackById"
+        class="user-detail-info__item-wrap"
+      >
+        <a
+          [routerLink]="'/events/' + event.id.toString()"
+          class="user-detail-info__item"
+        >
+          <div class="user-detail-info__item-img">
+            <img [src]="'assets/img/' + event.category + '.jpg'" alt="" />
+          </div>
+          <div class="user-detail-info__item-content">
+            <h4>{{ event.title }}</h4>
+            <p>{{ event.description }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #empty>
+  <div class="center">
+    <h3 class="center-x-y">You have no events</h3>
+  </div>
+</ng-template>

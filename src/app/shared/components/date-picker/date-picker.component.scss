@@ -1,0 +1,23 @@
+.datepicker-field {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+
+  input {
+    width: 100%;
+    outline: none;
+    padding: 0 15px;
+    height: 36px;
+    outline: none;
+    border: none;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-radius: 2px;
+    background-color: #fff;
+  }
+
+  .mat-datepicker-toggle {
+    position: absolute;
+    top: -1px;
+    right: 7px;
+  }
+}

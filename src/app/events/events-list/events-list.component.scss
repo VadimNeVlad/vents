@@ -1,0 +1,106 @@
+.events-list {
+  padding-bottom: 50px;
+
+  &__item {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 0;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.03);
+    margin-bottom: 50px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item-title-row {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  }
+
+  &__title-info {
+    padding-left: 25px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__title {
+    font-size: 26px;
+    font-weight: 500;
+    color: #000;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  &__host {
+    font-size: 14px;
+    margin-top: 0;
+  }
+
+  &__item-date-row {
+    display: flex;
+    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    padding: 10px 15px;
+  }
+
+  &__item-data {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 25px;
+  }
+
+  &__item-country {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  &__item-attendees-participants {
+    display: flex;
+    padding: 15px;
+    background-color: #f3f4f5;
+    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  }
+
+  &__item-info-row {
+    padding: 15px;
+    padding-top: 30px;
+    padding-bottom: 0;
+
+    p {
+      font-size: 16px;
+      margin: 0;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__cancel-info {
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: -10px;
+    left: 0;
+    background-color: rgb(209, 0, 0);
+    color: #fff;
+    padding: 5px 15px;
+    font-weight: 500;
+  }
+
+  .mat-icon {
+    font-size: 22px;
+    margin-right: 5px;
+  }
+}

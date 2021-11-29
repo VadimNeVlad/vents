@@ -1,0 +1,39 @@
+<div class="settings-view">
+  <h4>Account Settings</h4>
+  <strong class="settings-view__subtitle">Change Password</strong>
+  <p class="settings-view__form-text">Use this form to change your password</p>
+  <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+    <ven-input
+      [control]="getInputControl('password')"
+      type="password"
+      fieldName="Password"
+      placeholder="Enter new password"
+    ></ven-input>
+    <ven-input
+      [control]="getInputControl('confirmPassword')"
+      type="password"
+      fieldName="Password"
+      placeholder="Confirm your new password"
+    ></ven-input>
+
+    <div
+      class="settings-view__error-helper"
+      *ngIf="
+        passwordForm.invalid &&
+        passwordForm.get('confirmPassword')?.touched &&
+        passwordForm.hasError('passwordsDoesntMatch')
+      "
+    >
+      <span class="input-error">Please make sure your passwords match.</span>
+    </div>
+
+    <ng-container buttons>
+      <ven-button
+        [isButton]="true"
+        [disabled]="passwordForm.invalid || pending"
+      >
+        <ng-container button>Save new password</ng-container>
+      </ven-button>
+    </ng-container>
+  </form>
+</div>

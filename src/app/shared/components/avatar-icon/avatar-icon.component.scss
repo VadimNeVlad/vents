@@ -1,0 +1,36 @@
+.avatar-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: red;
+  cursor: pointer;
+
+  &.big {
+    width: 65px;
+    height: 65px;
+
+    span {
+      font-size: 30px;
+    }
+  }
+
+  &.small {
+    width: 35px;
+    height: 35px;
+
+    span {
+      font-size: 16px;
+    }
+  }
+
+  span {
+    display: block;
+    font-size: 20px;
+    line-height: 82%;
+    color: #fff;
+    font-weight: 500;
+  }
+}

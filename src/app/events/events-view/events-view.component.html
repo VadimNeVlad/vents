@@ -1,0 +1,45 @@
+<div class="events-view">
+  <div class="container">
+    <ng-container *ngIf="events$ | async as events; else loader">
+      <ven-events-list
+        [events]="events"
+        [userData]="authData$ | async"
+        (modalType)="openModal($event)"
+        (eventInfo)="getEventInfo($event)"
+      ></ven-events-list>
+
+      <ven-modal
+        [modalType]="'event-delete-' + event?.id"
+        [currentModal]="modalOpenType$ | async"
+        title="Delete Event"
+        (closeModal)="closeModal()"
+      >
+        <ng-container content>
+          Are you sure that you want to delete {{ event?.title }}?
+        </ng-container>
+        <ng-container buttons>
+          <ven-button
+            [isButton]="true"
+            [disabled]="(pending$ | async) || false"
+            color="gray"
+            (click)="closeModal()"
+            class="mr-15px"
+          >
+            <ng-container button>Cancel</ng-container>
+          </ven-button>
+          <ven-button
+            [isButton]="true"
+            [disabled]="(pending$ | async) || false"
+            (click)="deleteEvent()"
+          >
+            <ng-container button>Delete Event</ng-container>
+          </ven-button>
+        </ng-container>
+      </ven-modal>
+    </ng-container>
+
+    <ng-template #loader>
+      <ven-loader></ven-loader>
+    </ng-template>
+  </div>
+</div>

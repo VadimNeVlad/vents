@@ -1,0 +1,15 @@
+<div class="user-detail">
+  <div class="container">
+    <ng-container *ngIf="user$ | async as user; else loader">
+      <ven-user-detail-info
+        *ngIf="userEvents$ | async as userEvents"
+        [userData]="user"
+        [userEvents]="userEvents"
+      ></ven-user-detail-info>
+    </ng-container>
+
+    <ng-template #loader>
+      <ven-loader></ven-loader>
+    </ng-template>
+  </div>
+</div>

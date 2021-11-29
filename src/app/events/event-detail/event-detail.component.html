@@ -1,0 +1,24 @@
+<div class="event-detail">
+  <div *ngIf="event$ | async as event; else loader" class="container">
+    <ven-event-detail-info
+      [event]="event"
+      [pending]="(pending$ | async) || false"
+      [eventStatus]="(eventStatus$ | async) || false"
+      [userData]="authData$ | async"
+      (setEventStatus)="setEventStatus($event)"
+    ></ven-event-detail-info>
+
+    <ven-event-comments-list
+      *ngIf="comments$ | async as comments"
+      [event]="event"
+      [userData]="authData$ | async"
+      [comments]="comments"
+      [pending]="(pending$ | async) || false"
+      (commentData)="addComment($event)"
+    ></ven-event-comments-list>
+  </div>
+</div>
+
+<ng-template #loader>
+  <ven-loader></ven-loader>
+</ng-template>

@@ -1,0 +1,84 @@
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="event-form">
+  <ven-input
+    [control]="getInputControl('title')"
+    type="text"
+    fieldName="Title"
+    placeholder="Title"
+  ></ven-input>
+  <ven-select
+    [control]="getInputControl('category')"
+    [options]="inputOptions"
+    placeholder="Category"
+  ></ven-select>
+  <ven-input
+    [control]="getInputControl('city')"
+    type="text"
+    fieldName="City"
+    placeholder="City"
+  ></ven-input>
+  <ven-input
+    [control]="getInputControl('venue')"
+    type="text"
+    fieldName="Venue"
+    placeholder="Venue"
+  ></ven-input>
+  <ven-date-picker [control]="getInputControl('eventDate')"></ven-date-picker>
+  <ven-textarea
+    [control]="getInputControl('description')"
+    placeholder="Short description"
+  ></ven-textarea>
+  <quill-editor formControlName="content">
+    <div quill-editor-toolbar>
+      <span class="ql-formats">
+        <select class="ql-font">
+          <option selected></option>
+          <option value="serif"></option>
+          <option value="monospace"></option>
+        </select>
+        <select class="ql-size">
+          <option value="small"></option>
+          <option selected></option>
+          <option value="large"></option>
+          <option value="huge"></option>
+        </select>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+        <button class="ql-strike"></button>
+      </span>
+      <span class="ql-formats">
+        <select class="ql-color"></select>
+        <select class="ql-background"></select>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+        <select class="ql-align">
+          <option selected></option>
+          <option value="center"></option>
+          <option value="right"></option>
+          <option value="justify"></option>
+        </select>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-link"></button>
+        <button class="ql-image"></button>
+      </span>
+    </div>
+  </quill-editor>
+  <div class="event-form__btns">
+    <ven-button
+      class="mr-15px"
+      color="gray"
+      linkUrl="/events"
+      buttonType="button"
+    >
+      <ng-container>Cancel</ng-container>
+    </ven-button>
+    <ven-button [isButton]="true" [disabled]="eventForm.invalid || pending">
+      <ng-container button>Publish Event</ng-container>
+    </ven-button>
+  </div>
+</form>

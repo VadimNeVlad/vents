@@ -1,0 +1,12 @@
+<div class="create-event">
+  <div class="container">
+    <h2>Create Event</h2>
+    <ng-container *ngIf="authData$ | async as authData">
+      <ven-event-form
+        [userData]="authData"
+        [pending]="(pending$ | async) || false"
+        (eventFormData)="onSubmit($event)"
+      ></ven-event-form>
+    </ng-container>
+  </div>
+</div>
